@@ -1,0 +1,198 @@
+body {
+    color: #fff;
+    background: #262727;
+    font-family: "Roboto", sans-serif;
+  }
+  .form-control {
+    font-size: 15px;
+  }
+  .form-control,
+  .form-control:focus,
+  .input-group-text {
+    border-color: #e1e1e1;
+  }
+  .form-control,
+  .btn {
+    border-radius: 3px;
+  }
+  .signup-form {
+    width: 400px;
+    margin: 0 auto;
+    padding: 30px 0;
+  }
+  .signup-form form {
+    color: #262727;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    background: #fff;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+  }
+  .signup-form h2 {
+    color: #333;
+    font-weight: bold;
+    margin-top: 0;
+  }
+  .signup-form hr {
+    margin: 0 -30px 20px;
+  }
+  .signup-form .form-group {
+    margin-bottom: 20px;
+  }
+  .signup-form label {
+    font-weight: normal;
+    font-size: 15px;
+  }
+  .signup-form .form-control {
+    min-height: 38px;
+    box-shadow: none !important;
+  }
+  .signup-form .input-group-addon {
+    max-width: 42px;
+    text-align: center;
+  }
+  .signup-form .btn,
+  .signup-form .btn:active {
+    font-size: 16px;
+    font-weight: bold;
+    background: #262727 !important;
+    border: none;
+    min-width: 140px;
+  }
+  .signup-form .btn:hover,
+  .signup-form .btn:focus {
+    background: #262727 !important;
+  }
+  .signup-form a {
+    color: #262727;
+    text-decoration: underline;
+  }
+  .signup-form a:hover {
+    text-decoration: none;
+  }
+  .signup-form form a {
+    color: #262727;
+    text-decoration: none;
+  }
+  .signup-form form a:hover {
+    text-decoration: underline;
+  }
+  .signup-form .fa {
+    font-size: 21px;
+  }
+  .signup-form .fa-paper-plane {
+    font-size: 18px;
+  }
+  .signup-form .fa-check {
+    color: #262727;
+    left: 17px;
+    top: 18px;
+    font-size: 7px;
+    position: absolute;
+  }
+  .properties{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+} 
+.card{
+    height: 25vh;
+    width: 40vw;
+    display: flex;
+    flex-wrap: wrap;
+}
+.imgdiv{
+    height: 100%;
+    width: 50%;
+}
+.imgdiv img{
+    width:100%;
+    height:100%;
+}
+.detailsdiv{
+    height: 100%;
+    width: 50%;
+}
+.like{
+    height: 25px;
+    width: 25px;
+    position:absolute;
+    left: 90%;
+    top: 8%;
+}
+#tophome{
+height: 70vh;
+background-image: url('https://zrobim.us/assets/cache/images/architecture/2021-arch/bbm_house/bbm_viz_08-2200x-dee.jpg');
+background-repeat: no-repeat;
+background-size: 100vw 80vh;
+}
+.filters{
+    position: absolute;
+    margin-top: 7vh;
+    margin-left: 39.8vw;
+    border-radius: 5px;
+}
+.alfil{
+    position: absolute;
+    margin-top: 45vh;
+    margin-left: 20vw;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    color: white;
+    background-image: linear-gradient(to left, rgba(255,0,0,0), rgba(65,70,84,1));
+    /* background-color:transparent; */
+    border: 1px solid black;
+}
+.alfilimg{
+    margin-left: 2vw;
+    height: 15vh;
+    width: 15vw;
+}
+.alfilimg img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.appointments{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.taken{
+  width: 48vw;
+  height: auto;
+  border: 2px solid black;
+}
+.given{
+  width: 48vw;
+  height: auto;
+  border: 2px solid black;
+}
+.container{
+  height: 90vh;
+  width: 45vh;
+  border: 2px solid black;
+}
+.imgcont{
+  height: 60%;
+  width: 100%;
+  border: 2px solid black;
+
+}
+.imgcont img{
+  height: 100%;
+  width: 100%;
+}
+#div{
+  display: flex;
+}
+.card-one{
+  height: 50px;
+  
+}
+ul {
+  list-style-type: none;
+}

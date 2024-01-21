@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+/* // v9.0.0 and above */
+/* @import '~ngx-sharebuttons/themes/default'; */
+/* @import '../node_modules/'; */
+
+/* // less than v9.0.0 */
+/* @import '~ngx-sharebuttons/themes/default/default-theme'; */
+
+/* @import '~ngx-sharebuttons/themes/default'; */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,84 @@
+ 
+  
+<!-- <app-navbar></app-navbar> -->
+
+<div class="signup-form">
+    <form [formGroup]="form" (submit)="submit()">
+        
+		<h2>Sign Up</h2>
+		<p>Please fill in this form to create an account!</p>
+  
+		<hr>
+    	<img [src]="url" alt="" height="200px" width="200px">
+        <br>
+		<label for="exampleFormControlTextarea2">profile</label>
+
+		<div class="form-group">
+				  <input type="file" formControlName="image" (change)="onFileSelected($event)">
+				  <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+		</div>
+		
+
+		<div class="form-group">
+			<div class="input-group">
+			  <input  type="text" class="form-control" formControlName="u_name" placeholder="UserName"
+				[ngClass]="{'is-invalid':submitted && f['u_name'].errors}" />  
+			</div>
+			<div *ngIf="submitted && f['u_name'].errors" class="form-control" style="color:red">username is required</div>
+		  </div>
+
+		  <div class="form-group">
+			<div class="input-group">
+			  <input  type="text" class="form-control" formControlName="f_name" placeholder="FirstName"
+				[ngClass]="{'is-invalid':submitted && f['f_name'].errors}" />  
+			</div>
+			<div *ngIf="submitted && f['f_name'].errors" class="form-control" style="color:red">firstname is required</div>
+		  </div>
+
+		  <div class="form-group">
+			<div class="input-group">
+			  <input  type="text" class="form-control" formControlName="l_name" placeholder="LastName"
+				[ngClass]="{'is-invalid':submitted && f['l_name'].errors}" />  
+			</div>
+			<div *ngIf="submitted && f['l_name'].errors" class="form-control" style="color:red">lastname is required</div>
+		  </div>
+
+		  <div class="form-group">
+			<div class="input-group">
+			  <input  type="text" class="form-control" formControlName="email_id" placeholder="Email"
+				[ngClass]="{'is-invalid':submitted && f['email_id'].errors}" />  
+			</div>
+			<div *ngIf="submitted && f['email_id'].errors" class="form-control" style="color:red">enter a valid email</div>
+		  </div>
+
+		  <div class="form-group">
+			<div class="input-group">
+			  <input  type="password" class="form-control" formControlName="password" placeholder="password"
+				[ngClass]="{'is-invalid':submitted && f['password'].errors}" />  
+			</div>
+			<div *ngIf="submitted && f['password'].errors" class="form-control" style="color:red">atleast 8 charactors required</div>
+
+		  </div>
+
+
+		  <div class="form-group">
+			<div class="input-group">
+			  <input  type="text" class="form-control" formControlName="password2" placeholder="Confirm password" required="required"
+				[ngClass]="{'is-invalid':submitted && missmatch}" />  
+			</div>
+			<div *ngIf="submitted && missmatch" class="form-control" style="color:red">password missmatch</div>
+
+		  </div>
+		
+
+		
+      
+		<div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
+        </div>
+    </form>
+
+	<div class="text-center">Already have an account? <a routerLink="/login">Login here</a></div>
+</div>
+<div>
+	

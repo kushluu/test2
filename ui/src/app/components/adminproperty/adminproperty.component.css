@@ -1,0 +1,73 @@
+.imgdiv{
+    height: 300px;
+    width: 600px;
+    overflow-y: scroll;
+    border: 0.5px solid gray;
+}
+.imgdiv img{
+    height: 100%;
+    width: 100%;
+}
+.prop_details{
+    width: 500px;
+    height: 300px;
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    border: 0.5px solid gray;
+
+}
+.seller_img{
+    height: 200px;
+    width: 300px;
+    border: 0.5px solid gray;
+
+}
+.seller_img img{
+    height: 100%;
+    width: 100%;
+}
+
+.cont{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.reviews{
+    max-height: 550px;
+    width: 660px;
+}
+.review_img{
+    height: 60px;
+    width: 60px;
+}
+.review_img img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+.reviews h3 p h4{
+    padding: 0px;
+    margin: 0px;
+}
+
+
+
+
+ngb-carousel .wrapper {
+    position: relative;
+    height: 0;
+    padding-top: 55%; /* Keep ratio for 900x500 images */
+  }
+  
+  ngb-carousel .wrapper>img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  .map{
+    width: 68vw;
+    overflow: hidden;
+  }

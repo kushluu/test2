@@ -1,0 +1,349 @@
+<div class="signup-form">
+  <form
+    [formGroup]="surveyForm"
+    (ngSubmit)="onSubmit()"
+    *ngIf="surveyForm"
+    enctype="multipart/form-data"
+  >
+    <h2>Register property to sell</h2>
+    <p>Please fill in this form to register!</p>
+
+    <hr />
+
+    <div class="form-group">
+      <div class="input-group">
+        <input
+          id="name"
+          type="text"
+          class="form-control"
+          formControlName="name"
+          placeholder="Name"
+          [ngClass]="{ 'is-invalid': submitted && f['name'].errors }"
+        />
+      </div>
+      <div
+        *ngIf="submitted && f['name'].errors"
+        class="form-control"
+        style="color: red"
+      >
+        name is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="input-group">
+        <input
+          id="price"
+          type="number"
+          class="form-control"
+          formControlName="price"
+          placeholder="Price"
+          [ngClass]="{ 'is-invalid': submitted && f['price'].errors }"
+        />
+      </div>
+      <div
+        *ngIf="submitted && f['price'].errors"
+        class="form-control"
+        style="color: red"
+      >
+        price is required
+      </div>
+    </div>
+
+    <img [src]="url" alt="" height="200px" width="200px" />
+
+    <div class="form-group">
+      <label for="exampleFormControlTextarea2">profile</label>
+
+      <div class="form-group">
+        <input
+          type="file"
+          formControlName="image"
+          (change)="onFileSelected($event)"
+        />
+        <label class="custom-file-label" for="inputGroupFile01"
+          >Choose file</label
+        >
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="input-group">
+        <textarea
+          id="description"
+          class="form-control"
+          formControlName="description"
+          placeholder="Description"
+          [ngClass]="{ 'is-invalid': submitted && f['description'].errors }"
+        >
+        </textarea>
+      </div>
+      <div
+        *ngIf="submitted && f['description'].errors"
+        class="form-control"
+        style="color: red"
+      >
+        description is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="input-group">
+        <textarea
+          id="adress"
+          class="form-control"
+          formControlName="adress"
+          placeholder="Address"
+          [ngClass]="{ 'is-invalid': submitted && f['adress'].errors }"
+        >
+        </textarea>
+      </div>
+      <div
+        *ngIf="submitted && f['adress'].errors"
+        class="form-control"
+        style="color: red"
+      >
+        Address is required
+      </div>
+    </div>
+
+    <h4>Select type of property</h4>
+
+    <!-- matr -->
+    
+    <mat-form-field appearance="fill">
+      <mat-label>Property Type</mat-label>
+      <mat-select formControlName="property_type" multiple>
+        <mat-option disabled="true" >select</mat-option>
+        <mat-option value="apartment">apartment</mat-option>
+        <mat-option value="independenthouse">independent house</mat-option>
+        <mat-option value='independentfloor'>independent_floor</mat-option>
+        <mat-option value="duplex">duplex</mat-option>
+        <mat-option value="penthouse">penthouse</mat-option>
+        <mat-option value="villa">villa</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <!-- en -->
+
+    <!-- <select
+      formControlName="property_type"
+      name="property_type"
+      [ngClass]="{ 'is-invalid': submitted && f['property_type'].errors }"
+    >
+      <option value="apartment">apartment</option>
+      <option value="independent_house">independent house</option>
+      <option value="independent_floor">independent floor</option>
+      <option value="duplex">duplex</option>
+      <option value="penthouse">penthouse</option>
+      <option value="villa">villa</option>
+    </select> -->
+    <!-- <label class="form-label select-label">property type</label> -->
+    <div
+      *ngIf="submitted && f['property_type'].errors"
+      class="form-control"
+      style="color: red"
+    >
+      property_type is required
+    </div>
+
+    <br />
+
+    <!-- <select
+      formControlName="bhk_type"
+      name="bhk_type"
+      [ngClass]="{ 'is-invalid': submitted && f['bhk_type'].errors }"
+    >
+      <option value="1_bhk">1 bhk</option>
+      <option value="2_bhk">2 bhk</option>
+      <option value="3_bhk">3 bhk</option>
+      <option value="3_bhk+">3 bhk+</option>
+    </select>
+    <label class="form-label select-label">bhk type</label> -->
+    <mat-form-field appearance="fill">
+      <mat-label>Bhk Type</mat-label>
+      <mat-select formControlName="bhk_type" multiple>
+      <mat-option disabled="true" >select</mat-option>
+      <mat-option value="one_bhk">1 bhk</mat-option>
+      <mat-option value="two_bhk">2 bhk </mat-option>
+      <mat-option value='three_bhk'>3 bhk</mat-option>
+      </mat-select>
+      </mat-form-field>
+
+
+   
+
+
+    <div
+      *ngIf="submitted && f['bhk_type'].errors"
+      class="form-control"
+      style="color: red"
+    >
+      bhk_type is required
+    </div>
+
+    <br />
+
+    <!-- <select
+      formControlName="aminities"
+      name="aminities"
+      [ngClass]="{ 'is-invalid': submitted && f['aminities'].errors }"
+    >
+      <option value="swimmingpool">swimmingpool</option>
+      <option value="gated_communities">gated communities</option>
+      <option value="gym">gym</option>
+      <option value="lift">lift</option>
+      <option value="parking">parking</option>
+      <option value="power_backup">power backup</option>
+    </select>
+
+    <label class="form-label select-label">aminities</label> -->
+
+    <mat-form-field appearance="fill">
+      <mat-label>Aminities</mat-label>
+      <mat-select formControlName="aminities" multiple>
+      <mat-option disabled="true" >select</mat-option>
+      <mat-option value="swimmingpool">swimmingpool</mat-option>
+      <mat-option value="gatedcommunities">gated communities </mat-option>
+      <mat-option value='gym'>gym</mat-option>
+      <mat-option value="lift">lift</mat-option> 
+      <mat-option value="parking">parking</mat-option> 
+      <mat-option value="powerbackup">power_backup</mat-option> 
+      </mat-select>
+    </mat-form-field>
+
+    <div
+      *ngIf="submitted && f['aminities'].errors"
+      class="form-control"
+      style="color: red"
+    >
+      aminities is required
+    </div>
+    <br />
+
+    <!-- <select
+      formControlName="gender"
+      name="gender"
+      [ngClass]="{ 'is-invalid': submitted && f['gender'].errors }"
+    >
+      <option value="male">male</option>
+      <option value="female">female</option>
+    </select> -->
+    <mat-form-field appearance="fill">
+      <mat-label>Gender</mat-label>
+      <mat-select formControlName="gender" multiple>
+      <mat-option disabled="true" >select</mat-option>
+      <mat-option value="male">male</mat-option>
+      <mat-option value="female">female </mat-option>
+      </mat-select>
+      </mat-form-field>
+
+
+    <!-- <label class="form-label select-label">gender</label> -->
+    <div
+      *ngIf="submitted && f['gender'].errors"
+      class="form-control"
+      style="color: red"
+    >
+      gender is required
+    </div>
+
+    <br />
+    <!-- <select
+      formControlName="furnishing"
+      name="furnishing"
+      [ngClass]="{ 'is-invalid': submitted && f['furnishing'].errors }"
+    >
+      <option value="fully">fully</option>
+      <option value="partially">partially</option>
+      <option value="not">not</option>
+    </select> -->
+    <mat-form-field appearance="fill">
+      <mat-label>Furnishing</mat-label>
+      <mat-select formControlName="furnishing" multiple>
+      <mat-option disabled="true" >select</mat-option>
+      <mat-option value="fully">fully</mat-option>
+      <mat-option value="partially">partially </mat-option>
+      <mat-option value="not">not </mat-option>
+      </mat-select>  
+      </mat-form-field>
+    <!-- <label class="form-label select-label">furnishing</label> -->
+    <div
+      *ngIf="submitted && f['furnishing'].errors"
+      class="form-control"
+      style="color: red"
+    >
+      furnishing is required
+    </div>
+
+    <br />
+
+    <!-- <select
+      formControlName="room_type"
+      name="room_type"
+      [ngClass]="{ 'is-invalid': submitted && f['room_type'].errors }"
+    >
+      <option value="single">single</option>
+      <option value="married">married</option>
+      <option value="co_living">co_living</option>
+    </select>
+    <label class="form-label select-label">room type</label> -->
+    <mat-form-field appearance="fill">
+      <mat-label>Room Type</mat-label>
+      
+      <mat-select formControlName="room_type" multiple>
+      <mat-option disabled="true" >select</mat-option>
+      <mat-option value="single">single</mat-option>
+      <mat-option value="married">married </mat-option>
+      <mat-option value="coliving">co_living </mat-option>
+      </mat-select>
+      </mat-form-field>
+
+
+    <div
+      *ngIf="submitted && f['room_type'].errors"
+      class="form-control"
+      style="color: red"
+    >
+      room_type is required
+    </div>
+
+    <br />
+    <!-- <select
+      formControlName="residence_type"
+      [ngClass]="{ 'is-invalid': submitted && f['residence_type'].errors }"
+    >
+      <option value="buy">buy</option>
+      <option value="lease">lease</option>
+      <option value="rent">rent</option>
+    </select>
+
+    <label class="form-label select-label">residence type</label> -->
+    <mat-form-field appearance="fill">
+      <mat-label>Residence Type</mat-label>
+      <mat-select formControlName="residence_type" multiple>
+      <mat-option disabled="true" >select</mat-option>
+      <mat-option value="buy">buy</mat-option>
+      <mat-option value="lease">lease </mat-option>
+      <mat-option value="rent">rent </mat-option>
+      </mat-select>
+      </mat-form-field>
+
+    <div
+      *ngIf="submitted && f['residence_type'].errors"
+      class="form-control"
+      style="color: red"
+    >
+      residence_type is required
+    </div>
+
+    <br />
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+    </div>
+  </form>
+
+  <div class="text-center">
+    return to home? <a routerLink="/">Click here</a>
+  </div>
+</div>

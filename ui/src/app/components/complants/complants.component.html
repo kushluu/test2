@@ -1,0 +1,198 @@
+
+<div *ngIf="!complants">
+    <div>
+      <a routerLink="adminpannel" style="margin-left: 49vw"
+      ><img
+        src="../../../assets/icons8-home-24.png"
+        height="20px"
+        width="20px"
+        alt=""
+    /></a>
+    </div>
+ 
+<!-- Default switch -->
+<div class="form-check form-switch" style="margin-left: 85vw;">
+  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" (change)="toggle($event)">
+  <label class="form-check-label" for="flexSwitchCheckDefault">SORT BY REPORTERS</label>
+</div>
+<br />
+<div *ngIf="reports">
+  <div *ngFor="let type of desiredArray">
+      <h1 class="text-center text-secondary mt-5">Reports on {{ type.type }}</h1>
+      <!-- <div >
+        <hr />
+      </div> -->
+      <div class=" d-flex flex-wrap border at_et_margin" >
+      <div *ngFor="let report of type.typeArray" class="m-auto">
+        <div class="zoom">
+          <div>
+            <img
+              [src]="report.reporter.profile"
+              class="rounded-circle"
+              height="50"
+              width="50"
+              alt="Black and White Portrait of a Man"
+            />
+            {{ report.reporter.u_name }}
+          </div>
+          <div style="color: red">
+            {{ report.complant }}
+          </div>
+          <div>
+            <h3>{{ report.property.name }}</h3>
+          </div>
+          <div>
+            <a
+              routerLink="adminproperty/{{ report.property.id }}/{{report.id}}"
+              type="button"
+              class="btn btn-secondary"
+              >View Property</a
+            >
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+  <!-- <div class="cont">
+    <div *ngFor="let report of reports">
+      <div *ngIf="report.property.name != name"  style='position: absolute; width: 100vw;'>
+        {{ changename(report.property.name) }}
+        <h1>Reports on {{ report.property.name }}</h1>
+        <div >
+          <hr />
+        </div>
+      </div>
+
+      <div class="zoom">
+        <div>
+          <img
+            [src]="report.reporter.profile"
+            class="rounded-circle"
+            height="50"
+            width="50"
+            alt="Black and White Portrait of a Man"
+          />
+          {{ report.reporter.u_name }}
+        </div>
+        <div style="color: red">
+          {{ report.complant }}
+        </div>
+        <div>
+          <h3>{{ report.property.name }}</h3>
+        </div>
+        <div>
+          <a
+            routerLink="adminproperty/{{ report.property.id }}"
+            type="button"
+            class="btn btn-secondary"
+            >View Property</a
+          >
+        </div>
+      </div>
+    </div>
+  </div> -->
+</div>
+
+</div>
+
+
+
+
+
+<div *ngIf="complants">
+    
+  <a routerLink="adminpannel" style="margin-left: 49vw"
+  ><img
+    src="../../../assets/icons8-home-24.png"
+    height="20px"
+    width="20px"
+    alt=""
+/></a>
+  <!-- Default switch -->
+  <div class="form-check form-switch" style="margin-left: 85vw;">
+    <label class="form-check-label" for="flexSwitchCheckDefault">SORT BY PROPERTIES</label>
+    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" (change)="toggle($event)" checked>
+  </div>
+  <br />
+  <div *ngIf="reports">
+    <div *ngFor="let type of desiredArray2">
+        <h1 class="text-center text-secondary mt-5">Reports by {{type.typeArray[0].reporter.u_name}}</h1>
+        <!-- <div >
+          <hr />
+        </div> -->
+        <div class=" d-flex flex-wrap border at_et_margin" >
+        <div *ngFor="let report of type.typeArray" class="m-auto">
+          <div class="zoom">
+            <div>
+              <img
+                [src]="report.reporter.profile"
+                class="rounded-circle"
+                height="50"
+                width="50"
+                alt="Black and White Portrait of a Man"
+              />
+              {{ report.reporter.u_name }}
+            </div>
+            <div style="color: red">
+              {{ report.complant }}
+            </div>
+            <div>
+              <h3>{{ report.property.name }}</h3>
+            </div>
+            <div>
+              <a
+                routerLink="adminproperty/{{ report.property.id }}/{{report.id}}"
+                type="button"
+                class="btn btn-secondary"
+                >View Property</a
+              >
+            </div>
+          </div>
+  
+  
+        </div>
+      </div>
+    </div>
+    <!-- <div class="cont">
+      <div *ngFor="let report of reports">
+        <div *ngIf="report.property.name != name"  style='position: absolute; width: 100vw;'>
+          {{ changename(report.property.name) }}
+          <h1>Reports on {{ report.property.name }}</h1>
+          <div >
+            <hr />
+          </div>
+        </div>
+  
+        <div class="zoom">
+          <div>
+            <img
+              [src]="report.reporter.profile"
+              class="rounded-circle"
+              height="50"
+              width="50"
+              alt="Black and White Portrait of a Man"
+            />
+            {{ report.reporter.u_name }}
+          </div>
+          <div style="color: red">
+            {{ report.complant }}
+          </div>
+          <div>
+            <h3>{{ report.property.name }}</h3>
+          </div>
+          <div>
+            <a
+              routerLink="adminproperty/{{ report.property.id }}"
+              type="button"
+              class="btn btn-secondary"
+              >View Property</a
+            >
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+  
+  </div>

@@ -1,0 +1,111 @@
+<div *ngIf="temp;else other">
+
+    <section class="gradient-custom">
+        <div class="container my-5 py-5">
+          <div class="row d-flex justify-content-center py-5">
+            <div class="col-md-7 col-lg-5 col-xl-4">
+              <div class="card" style="border-radius: 15px;">
+                <div class="card-body p-4">
+                  <form>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                      <div class="form-outline">
+                        <input type="text" id="typeText" class="form-control form-control-lg" siez="17"
+                          placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" />
+                        <label class="form-label" for="typeText">Card Number</label>
+                      </div>
+                      <img src="https://img.icons8.com/color/48/000000/visa.png" alt="visa" width="64px" />
+                    </div>
+      
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                      <div class="form-outline">
+                        <input type="text" id="typeName" class="form-control form-control-lg" siez="17"
+                          placeholder="Cardholder's Name" />
+                        <label class="form-label" for="typeName">Cardholder's Name</label>
+                      </div>
+                    </div>
+      
+                    <div class="d-flex justify-content-between align-items-center pb-2">
+                      <div class="form-outline">
+                        <input type="text" id="typeExp" class="form-control form-control-lg" placeholder="MM/YYYY"
+                          size="7" id="exp" minlength="7" maxlength="7" />
+                        <label class="form-label" for="typeExp">Expiration</label>
+                      </div>
+                      <div class="form-outline">
+                        <input type="password" id="typeText2" class="form-control form-control-lg"
+                          placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
+                        <label class="form-label" for="typeText2">Cvv</label>
+                      </div>
+                      <button type="button" class="btn btn-info btn-lg btn-rounded">
+                        <i class="fas fa-arrow-right" (click)="toggle0()"></i>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+    
+    
+</div>
+
+
+
+
+<ng-template #other>
+    
+ <div *ngIf="!payd">
+    <section style="background-color: #eee;">
+        <div class="container py-5">
+          <div class="row d-flex justify-content-center">
+            <div class="col-md-8 col-lg-6 col-xl-4">
+              <div class="card rounded-3">
+                <div class="card-body mx-1 my-2">
+                  <div class="d-flex align-items-center">
+                    <div>
+                      <i class="fab fa-cc-visa fa-4x text-black pe-3"></i>
+                    </div>
+                    <div>
+                      <p class="d-flex flex-column mb-0">
+                        <b>Martina Thomas</b><span class="small text-muted">**** 8880</span>
+                      </p>
+                    </div>
+                  </div>
+      
+                  <div class="pt-3">
+                    <div class="d-flex flex-row pb-3">
+                      <div class="rounded border border-primary border-2 d-flex w-100 p-3 align-items-center"
+                        style="background-color: rgba(18, 101, 241, 0.07);">
+                        <div class="d-flex align-items-center pe-3">
+                          <input class="form-check-input" type="radio" name="radioNoLabelX" id="radioNoLabel11"
+                            value="" aria-label="..." checked />
+                        </div>
+                        <div class="d-flex flex-column">
+                          <p class="mb-1 small text-primary">Price</p>
+                          <h6 class="mb-0 text-primary">$100</h6>
+                        </div>
+                      </div>
+                    </div>
+      
+                    
+                  </div>
+      
+                  <div class="d-flex justify-content-between align-items-center pb-1">
+                    <a (click)="toggle1()" class="text-muted">Go back</a>
+                    <button type="button" class="btn btn-primary btn-lg"(click)=" payment()">Pay amount</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+ </div>
+
+</ng-template>
+
+<div *ngIf="payd">
+    <img src="../../../assets/check.gif" alt="">
+</div>

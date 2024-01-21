@@ -1,0 +1,206 @@
+<div style="width: 70vw; background-color: black; margin-left: 15vw;">
+    <div class="container-fluid " style="padding-top: 70px;">
+        <ngb-carousel *ngIf="images">
+          <ng-template ngbSlide>
+            <div  class="text-center" style="width: 300px; height: 500px;margin-left: 35%;color: white;" >
+                <h2>Seller Details</h2>
+            
+                <div *ngIf="user" class="seller_img">
+                    <img
+                      [src]="user?.profile"
+                      alt=""
+                      style="height: 100%; width: 100%"
+                    />
+                    <div class="card-body">
+                      <h1 class="product_title">Name :{{ user?.u_name }}</h1>
+                      <h1 class="product_title">contact:{{ user?.email_id }}</h1>
+                    </div>
+                    
+                  </div>
+            </div>
+          </ng-template>
+          <ng-template ngbSlide>
+            <div class="prop_details"  class="text-center" style="width: 300px; height: 500px;margin-left: 34%;color: white;">
+                <h2>Property Details</h2>
+            
+                <div >
+                    
+                    <div>
+                      <div *ngIf="property" class="property">
+                        <h1 class="product_title">{{ property[0]?.name }}</h1>
+                        <h2 class="product_title">{{ property[0]?.price }} &#8377;</h2>
+                        <p class="product_title">{{ property[0]?.description }}</p>           
+                      </div>
+                    </div>
+                  </div>
+            
+                  <div  style=" display: flex; justify-content: space-between;">
+                    <div>
+                        <span style="color: gray">Property Type:</span>
+                        <div *ngIf="property[0].catogary[0].apartment">Apartment</div>
+                        <div *ngIf="property[0].catogary[0].penthouse">Penthouse</div>
+                        <div *ngIf="property[0].catogary[0].duplex">duplex</div>
+                        <div *ngIf="property[0].catogary[0].independent_house">
+                          Independent House
+                        </div>
+                        <div *ngIf="property[0].catogary[0].independent_floor">
+                          Independent Floor
+                        </div>
+                        <div *ngIf="property[0].catogary[0].villa">Villa</div>
+                    </div>
+                    <div>
+                      <span style="color: gray">Facility</span>
+                      <div *ngIf="property[0].catogary[0].lift">Lift</div>
+                      <div *ngIf="property[0].catogary[0].powerbackup">
+                        Power Backup
+                      </div>
+                      <div *ngIf="property[0].catogary[0].swimmingpool">
+                        Swimmingpool
+                      </div>
+                      <div *ngIf="property[0].catogary[0].gated_community">
+                        Gated Community
+                      </div>
+                      <div *ngIf="property[0].catogary[0].gym">Gym</div>
+                      <div *ngIf="property[0].catogary[0].parking">Parking</div>
+                    </div>
+                    <div>
+                      <span style="color: gray">Residence Type</span>
+                      <div *ngIf="property[0].catogary[0].rent">Rent</div>
+                      <div *ngIf="property[0].catogary[0].lease">Lease</div>
+                      <div *ngIf="property[0].catogary[0].buy">Buy</div>
+                    <div>
+                    </div>
+                      <span style="color: gray">Room Type</span>
+                      <div *ngIf="property[0].catogary[0].single">Bachelor</div>
+                      <div *ngIf="property[0].catogary[0].married">Married</div>
+                      <div *ngIf="property[0].catogary[0].coliving">Co-living</div>
+                    </div>
+                    <div>
+                      <span style="color: gray">Bhk Type</span>
+                      <div *ngIf="property[0].catogary[0].one_bhk">One Bhk</div>
+                      <div *ngIf="property[0].catogary[0].two_bhk">Two Bhk</div>
+                      <div *ngIf="property[0].catogary[0].three_bhk">Three Bhk</div>
+                    </div>
+                    <div>
+                      <span style="color: gray">Furnishing</span>
+                      <div *ngIf="property[0].catogary[0].full_fur">
+                        Fully Furnished
+                      </div>
+                      <div *ngIf="property[0].catogary[0].partially_fur">
+                        Partially Furnished
+                      </div>
+                      <div *ngIf="property[0].catogary[0].not_fur">Not Furnished</div>
+                    </div>
+                  </div>
+              
+            </div>
+          </ng-template>
+          <ng-template ngbSlide>
+            <div class="reviews" style="height: 500px;width: 100%; color: white; overflow-y: scroll;">
+        
+                <div *ngIf="reviews.length ;else next" class="reviews">
+                    <div *ngFor="let re of reviews">
+                        <div>
+                            <div class="review_img" style="margin-left:20%;">
+                                <img class="profile-pic" [src]="re.customer.profile" />
+                            </div>
+                            <h3 class="mt-2 mb-0" style="margin-left:20%;">{{ re.customer.u_name }}</h3>
+                            <ngb-rating
+                              [(rate)]="re.rating"
+                              [max]="5"
+                              style="
+                                color: yellow;
+                                margin-left:20%;
+                                font-size: x-large;
+                              "
+                              [readonly]="true"
+                              
+                            ></ngb-rating>
+                            <p class="text-muted pt-5 pt-sm-3" style="margin-left:20%;"> {{ re.date }}</p>
+                          <h4 class="blue-text mt-3" style="margin-left:20%;">{{ re.subject }}</h4>
+                          <p class="content" style="margin-left:20%;">{{ re.review }}</p>
+                        </div>
+                    </div>
+                  </div>
+            </div>
+
+            <ng-template #next style="height: 500px;">
+                    <img src="../../../assets/download (4).png" alt="" style="background-color: white;height: 100%;width: 100%;">
+            </ng-template>
+          </ng-template>
+          <ng-template ngbSlide>
+            <div  style="width: 600px; height: 500px; margin-left: 23%;color: white;">
+                <h2 style="margin-left: 14vw;">Property Images</h2>
+            <div *ngIf="imges.length ;  else elseBlock" class="imgdiv" >
+                <div *ngIf="imges && imges.length != 0 && property">
+                  <div *ngIf="property[0]?.image1">
+                    <img id="mainImg" [src]="property[0]?.image" alt="" />
+                  </div>
+                  <div *ngIf="imges[0].img1">
+                    <img id="mainImg" [src]="imges[0].img1" alt="" />
+                  </div>
+                  <div *ngIf="imges[0].img2">
+                    <img id="mainImg" [src]="imges[0].img2" alt="" />
+                  </div>
+                  <div *ngIf="imges[0].img3">
+                    <img id="mainImg" [src]="imges[0].img3" alt="" />
+                  </div>
+                  <div *ngIf="imges[0].img4">
+                    <img id="mainImg" [src]="imges[0].img4" alt="" />
+                  </div>
+                  <div *ngIf="imges[0].img5">
+                    <img id="mainImg" [src]="imges[0].img5" alt="" />
+                  </div>
+                </div>
+              </div>
+              <ng-template #elseBlock  style="margin-left: 80vw;">
+                <img id="mainImg" src="../../../assets/download (2).png" alt="">
+                </ng-template>
+            </div> 
+          </ng-template>
+          
+        </ngb-carousel>
+        </div>
+
+
+        <div class="map">
+            <app-map [data]="property"></app-map>
+        </div>
+
+
+        <div class="alert alert-danger" role="alert" style="width: auto;">
+            Report--->{{reports[0].complant}}
+          </div>
+
+
+        <div style="display: flex;flex-wrap: wrap;justify-content: space-around;">
+            <div style="width: 30vw; color: white;" class="text-center">
+                <h1>Warn Reporter</h1>
+                <div class="alert alert-success" role="alert" *ngIf="reporter">
+                    <h1>Warning sent successfully</h1>
+                </div>
+                <textarea name="" id="" cols="50" rows="5" [(ngModel)]="reporter_msg"></textarea>
+                <br>
+                <button class="btn btn-danger" (click)='message_to_reporter()'>send</button>
+            </div>
+            <div style="width: 30vw; color: white;" class="text-center">
+                <h1>Warn Seller</h1>
+                <div class="alert alert-success" role="alert"*ngIf="seller" >
+                    <h1>Warning sent successfully</h1>
+                </div>
+
+                <textarea name="" id="" cols="50" rows="5" [(ngModel)]="seller_msg"></textarea>
+                <br>
+                <button class="btn btn-danger"(click)='message_to_seller()'>send</button>
+            </div>
+        </div>
+        <div *ngIf="temp=='property'" class='alert alert-success'>
+            property deleted
+        </div>
+
+        <div style="display: flex;flex-wrap: wrap;justify-content: space-around;margin-top: 3vh;">
+            <button class="btn btn-danger" (click)="delete_property()">delete property</button>
+        </div>
+        
+    
+</div>

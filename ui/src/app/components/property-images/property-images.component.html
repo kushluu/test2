@@ -1,0 +1,94 @@
+<div class="main">
+<div>
+<div *ngIf="imges && imges.length!=0; else elseBlock">
+      <div class="imgdiv" *ngIf="imges[0].img1">
+     <img id="mainImg" [src]="img_url1" alt="" />
+     </div>
+</div>
+<ng-template #elseBlock>
+        <div class="imgdiv">
+        <img id="mainImg" [src]="img_url1" alt="" />
+        </div>
+</ng-template>
+<input type="file" (change)="onFileSelected1($event)">
+</div>
+
+
+<div>
+    <div *ngIf="imges && imges.length!=0; else elseBlock2">
+          <div class="imgdiv" *ngIf="imges[0].img1">
+         <img id="mainImg" [src]="img_url2" alt="" />
+         </div>
+    </div>
+<ng-template #elseBlock2>
+        <div class="imgdiv">
+        <img id="mainImg" [src]="img_url2" alt="" />
+        </div>
+</ng-template>
+    <input type="file" (change)="onFileSelected2($event)">
+</div>
+
+
+<div>
+    <div *ngIf="imges && imges.length!=0; else elseBlock3">
+          <div class="imgdiv" *ngIf="imges[0].img1">
+         <img id="mainImg" [src]="img_url3" alt="" />
+         </div>
+    </div>
+<ng-template #elseBlock3>
+        <div class="imgdiv">
+        <img id="mainImg" [src]="img_url3" alt="" />
+        </div>
+</ng-template>
+    <input type="file" (change)="onFileSelected3($event)">
+</div>
+
+<div>
+    <div *ngIf="imges && imges.length!=0; else elseBlock4">
+          <div class="imgdiv" *ngIf="imges[0].img1">
+         <img id="mainImg" [src]="img_url4" alt="" />
+         </div>
+    </div>
+<ng-template #elseBlock4>
+        <div class="imgdiv">
+        <img id="mainImg" [src]="img_url4" alt="" />
+        </div>
+</ng-template>
+    <input type="file" (change)="onFileSelected4($event)">
+</div>
+
+
+<div>
+    <div *ngIf="imges && imges.length!=0; else elseBlock5">
+          <div class="imgdiv" *ngIf="imges[0].img1">
+         <img id="mainImg" [src]="img_url5" alt="" />
+         </div>
+    </div>
+<ng-template #elseBlock5>
+        <div class="imgdiv">
+        <img id="mainImg" [src]="img_url5" alt="" />
+        </div>
+</ng-template>
+    <input type="file" (change)="onFileSelected5($event)">
+</div>
+
+<button class='btn btn-success'  style="margin: 30px;" (click)="submit()">submit</button>
+
+</div>
+     <!-- <div *ngIf="imges[0].img2">
+         <img id="mainImg" [src]="imges[0].img2" alt="" />
+     </div>
+     <div *ngIf="imges[0].img3">
+         <img id="mainImg" [src]="imges[0].img3" alt="" />
+     </div>
+     <div *ngIf="imges[0].img4">
+         <img id="mainImg" [src]="imges[0].img4" alt="" />
+     </div>
+     <div *ngIf="imges[0].img5">
+         <img id="mainImg" [src]="imges[0].img5" alt="" />
+     </div>  -->
+<!-- <input type="file" (change)="onFileSelected2($event)">
+<input type="file" (change)="onFileSelected3($event)">
+<input type="file" (change)="onFileSelected4($event)">
+<input type="file" (change)="onFileSelected5($event)"> -->
+

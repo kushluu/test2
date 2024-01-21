@@ -1,0 +1,207 @@
+/* 
+
+
+
+.card{
+    height: 25vh;
+    width: 40vw;
+    display: flex;
+    flex-wrap: wrap;
+
+    }
+.imgdiv{
+    height: 100%;
+    width: 50%;
+}
+.imgdiv img{
+    width:100%;
+    height:100%;
+}
+.detailsdiv{
+    height: 100%;
+    width: 50%;
+}
+
+#tophome{
+height: 70vh;
+background-image: url('../../../assets/bbm_viz_08-2200x-dee.jpg');
+background-repeat: no-repeat;
+background-size: 100vw 80vh;
+}
+.filters{
+    margin-left: 39.8vw;
+    border-radius: 5px;
+}
+.alfil{
+    position: absolute;
+    margin-top: 45vh;
+    margin-left: 2vw;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    color: white;
+    background-image: linear-gradient(to left, rgba(255,0,0,0), rgba(65,70,84,1));
+    border: 1px solid black;
+}
+.alfilimg{
+    margin-left: 2vw;
+    height: 15vh;
+    width: 15vw;
+}
+.alfilimg img{
+    max-width: 100%;
+    max-height: 100%;
+}
+p {
+    white-space: normal;
+    overflow-wrap: break-word;
+    width: 22vw;
+}
+ */
+
+
+
+
+
+
+
+
+
+
+ 
+
+ #tophome{
+    height: 70vh;
+    width: 100vw;
+    background-color: black;
+   
+    }
+ img{
+   
+    width:100%;
+    height:100%;
+}
+.properties{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+} 
+
+/* .cont{
+    height: 30vh;
+    width: 40vw;
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    overflow: hidden;
+    min-width: 390px;
+}
+.imgdiv{
+    height: 100%;
+    width: 60%;
+    min-width: 195px;
+    
+}
+.imgdiv img{
+    height: 100%;
+    width: 100%;
+}
+
+.blank{
+    height: 100%;
+    width: 5%;
+}
+
+p, h3 {
+    margin: 1px;
+    padding: 1px;
+    position: relative;
+    font-size: 120%;
+   
+  }
+ */
+ .grab {cursor: -webkit-grab; cursor: grab;}
+.cont{
+    margin: 3vh;
+    border-radius: 10px;
+    border: 1px solid gray;
+    overflow: hidden;
+}
+.imgdiv{
+    height: 28vh;
+    width: 18vw;
+    border: 0.5px solid gray;
+}
+
+.imgdiv img{
+    height: 100%;
+    width: 100%;
+}
+  .filter{
+    height: 8vh;
+    width: 40vw;
+
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 390px;
+    margin: auto;
+  }
+  .like{
+    height: 25px;
+    width: 25px;
+    top: 8%;
+}
+.likdiv{
+margin-left: auto;
+}
+.dtl{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.btncls{
+    margin-left: 60px;
+    margin-bottom:10px ;
+}
+
+.sub_homeimg1{
+    margin-top: 20vh;
+    margin-bottom: 20vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    height: 60vh;
+    width: 80vw;
+}
+.sub_homeimg1 img{
+   
+    height: 100%;
+    width: 100%;
+}
+
+
+
+.css-tkm64s {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    font-size: 36px;
+    font-weight: 400;
+    color: rgb(51, 51, 51);
+    background-color: rgb(255, 255, 255);
+    padding-bottom: 36px;
+    padding-top: 36px;
+}
+.fildiv{
+    position: absolute;
+    top:71vh;
+    left:93vw;
+    height: 10vh;
+    width: 5vw;
+}

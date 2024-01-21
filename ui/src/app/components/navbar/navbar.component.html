@@ -1,0 +1,208 @@
+<!-- 
+<nav class="navbar navbar-dark bg-dark">
+    
+    
+    <nav class="navbar navbar-expand-lg bg-light" style="margin-left: 2vw;">
+   
+        <div class="links">
+            <a class="navbar-brand"> <h1>Sahara</h1></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+                <div class="nav-item">
+                    
+                    <a routerLink="/" class="nav-link active" aria-current="page">Home</a>
+                </div>&nbsp;&nbsp;
+    
+                <ng-template *ngIf="authenticated;else other_content">
+                    <div class="nav-item" >
+                        <a class="nav-link disabled">Signup</a>
+                    </div>&nbsp;&nbsp;
+                    <div class="nav-item">
+                        <a class="nav-link disabled">Login</a>
+                    </div>&nbsp;&nbsp;
+                  
+                </ng-template>
+              
+      
+                <ng-template #other_content>
+                    <div class="nav-item">
+                        <a routerLink="/signup" class="nav-link">Signup</a>
+                    </div>&nbsp;&nbsp;
+                    <div class="nav-item">
+                        <a routerLink="/login" class="nav-link">Login</a>
+                    </div>&nbsp;&nbsp;
+                </ng-template>
+    
+                <div class="nav-item" *ngIf="authenticated">
+                    <a class="nav-link"  (click)="logout()">logout</a>
+                </div>&nbsp;&nbsp;
+                <div class="nav-item" *ngIf="authenticated">
+                    <a routerLink="/register_form" class="nav-link" >sell</a>
+                </div>&nbsp;&nbsp;
+                <div class="nav-item" *ngIf="authenticated">
+                    <a routerLink="/wishlist" class="nav-link" >saved</a>
+                </div>
+    
+    
+            
+        </div>
+
+       
+    </nav>
+   
+  
+
+    
+
+        
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <div class="d-flex" >
+                    <input class="form-control me-2" type="search" [(ngModel)]=key placeholder="Search" aria-label="Search" size="70">
+                    <button class="btn btn-outline-success" type="submit" (click)="search()">Search</button>
+                   
+                </div>
+            </div>
+            
+        </nav>
+
+
+
+    <nav class="navbar" *ngIf="authenticated">
+
+        
+        <nav class="navbar navbar-expand-lg bg-light" style="margin-right: 2vw;">
+            <div class="container-fluid">
+                <a routerLink="info"> <img src="../../../assets/account.png" alt="" style="height:30px;"></a>
+            </div>
+        </nav>
+    </nav>
+</nav>
+ 
+ -->
+
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Navbar brand -->
+      <a class="navbar-brand" href="#">
+        <img
+          src="../../../assets/download (3).png"
+          height="50"
+          width="100"
+          alt="MDB Logo"
+          loading="lazy"
+        />
+      </a>
+      <!-- Left links -->
+<div *ngIf="authenticated ; else otherblock">
+    <ul class="navbar-nav ">
+        <li class="nav-item">
+          <a routerLink="/register_form" class="nav-link" href="#">sell</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/wishlist" class="nav-link" href="#">saved</a>
+        </li>
+        <li class="nav-item">
+          <a (click)="logout()" class="nav-link" href="#">signout</a>
+        </li>
+      </ul>
+</div>
+<ng-template #otherblock>
+    <ul class="navbar-nav ">
+        <li class="nav-item">
+          <a routerLink="/login" class="nav-link" href="#">signin</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/signup" class="nav-link" href="#">signup</a>
+        </li>
+      </ul>
+</ng-template>
+      <!-- Left links -->
+    </div>
+    <!-- Collapsible wrapper -->
+
+    <div class="container-fluid" style="margin-left: 10vw;margin-right: 10vw;">
+      <div class="d-flex">
+        <input
+          class="form-control me-2"
+          type="search"
+          [(ngModel)]="key"
+          placeholder="Search"
+          aria-label="Search"
+          
+        />
+        <button
+          class="btn btn-outline-success"
+          type="submit"
+          (click)="search()"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+
+    <!-- Right elements -->
+    <div *ngIf="authenticated" style="display: flex;">
+      <div *ngIf="use.is_superuser" style="margin-top: 5px; border: 1px solid grey; border-radius: 5px;">
+        <button class="btn btn-light" routerLink="Admin">admin</button>
+      </div>
+      <div>
+        <div class="dropdown" style="margin-top: 10px;">
+          <a
+            class="text-reset me-3 dropdown-toggle "
+            id="navbarDropdownMenuLink"
+            role="button"
+            data-mdb-toggle="dropdown"
+            aria-expanded="false"
+            style="margin: 15px;"
+            (click)="opendialog()"
+          >
+            <i class="fas fa-bell" ></i>
+            <span class="badge rounded-pill badge-notification bg-danger" *ngIf="admin_msg.length">{{admin_msg.length}}</span>
+          </a>
+          
+        </div>
+
+
+      </div>
+      <div class="d-flex align-items-center">
+        <div class="dropdown">
+          <a href="#" routerLink="info">
+            <img
+              [src]="use.profile"
+              class="rounded-circle"
+              height="40"
+              width="50"
+              alt="Black and White Portrait of a Man"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+
+   
+
+
+
+    <!-- Right elements -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->

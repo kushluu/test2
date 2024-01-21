@@ -1,0 +1,6 @@
+<div *ngIf="admin_msg" class="dialog text-center">
+    <div *ngFor="let msg of admin_msg  index as i">
+        <h1>{{i+1}}:{{msg.message}}</h1>
+        <hr>
+    </div>
+</div>

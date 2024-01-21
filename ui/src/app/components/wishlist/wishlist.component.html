@@ -1,0 +1,28 @@
+<p>wishlist works!</p>
+<p>{{user}}</p>
+<ul class = 'properties'>
+
+<li *ngFor="let p of property; let i = index; let odd = odd"[class.odd]="odd" >
+       
+
+    <br>
+         <div class="card" style="width: 40vw;">
+            <div class="row no-gutters">
+                <div class="col-sm-6" >
+                <img class="card-img" [src]="p.property.image" alt="pi">
+    
+                </div>
+                <div class="col-sm-6">
+                    <div class="card-body">
+                        <h5 class="card-title">{{p.property.name}}</h5>
+                        <img  class="card_img" (click)="delete(p.id)" src='{{ url }}' alt="">
+
+                            <p class="card-text">{{p.property.description}}</p>
+                        <p class="card-text">price: {{p.property.price}} rs</p>
+                        <a routerLink="property/{{p.property.id}}" class="btn btn-primary">View Property</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>    

@@ -1,0 +1,296 @@
+<nav class="navbar navbar-dark bg-light" style="border: 0.5px solid black;">
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" routerLink="">Sahara.com</a>
+        </div>
+    </nav>
+   
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand">Properties with High ROI</a>
+        </div>
+    </nav>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <input class="form-control me-2"  type="search" [(ngModel)]=key placeholder="Search" aria-label="Search" size="70">
+            <button class="btn btn-outline-success" (click)="search()" type="submit">Search</button>
+        </div>
+    </nav>
+
+   
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a routerLink="info"> <img src="../../../assets/account.png" alt="" style="height:30px;"></a>
+        </div>
+    </nav>
+    
+</nav>
+
+
+
+  <form [formGroup]="surveyForm" (ngSubmit)="onSubmit()" *ngIf="surveyForm"  enctype="multipart/form-data">
+               
+                <!-- <select formControlName="property_type" name="property_type" >
+                    <option value="apartment">apartment</option>
+                    <option value="independent_house">independent house</option>
+                    <option value="independent_floor">independent floor</option>
+                    <option value="duplex">duplex</option>
+                    <option value="penthouse">penthouse</option>
+                    <option value="villa">villa</option>
+                  </select>
+                 
+                  <label class="form-label select-label">property type</label>
+            
+                  <select formControlName="bhk_type" name="bhk_type">
+                    <option value="1_bhk">1 bhk</option>
+                    <option value="2_bhk">2 bhk</option>
+                    <option value="3_bhk">3 bhk</option>
+                    <option value="3_bhk+">3 bhk+</option>
+            
+            
+                  </select>
+                  <label class="form-label select-label">bhk type</label>
+                  
+            
+                  <select formControlName="aminities" name="aminities" >
+                    <option value="swimmingpool">swimmingpool</option>
+                    <option value="gated_communities">gated communities</option>
+                    <option value="gym">gym</option>
+                    <option value="lift">lift</option>
+                    <option value="parking">parking</option>
+                    <option value="power_backup">power backup</option>
+                  </select>
+            
+                  <label class="form-label select-label">aminities</label>
+                 
+               
+                  <select formControlName="gender" name="gender" >
+                    <option value="male">male</option>
+                    <option value="female">female</option>
+                  </select>
+                  <label class="form-label select-label">gender</label>
+                  
+                  <select formControlName="furnishing" name="furnishing">
+                    <option value="fully">fully</option>
+                    <option value="partially">partially</option>
+                    <option value="not">not</option>
+            
+                  </select>
+                  <label class="form-label select-label">furnishing</label>
+                  
+            
+                  <select formControlName="room_type" name="room_type">
+                    <option value="single">single</option>
+                    <option value="married">married</option>
+                    <option value="co_living">co_living</option>
+            
+                  </select>
+                  <label class="form-label select-label">room type</label>
+                 
+                  <select formControlName="residence_type" >
+            
+                    <option value="buy">buy</option>
+                    <option value="lease">lease</option>
+                    <option value="rent">rent</option>
+            
+                  </select>            
+                  <label class="form-label select-label">residence type</label> -->
+
+
+
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+  
+  <mat-form-field appearance="fill">
+    <mat-label>Property Type</mat-label>
+    <mat-select formControlName="property_type" multiple>
+      <mat-option disabled="true" >select</mat-option>
+      <mat-option value="apartment">apartment</mat-option>
+      <mat-option value="independenthouse">independent house</mat-option>
+      <mat-option value='independentfloor'>independent_floor</mat-option>
+      <mat-option value="duplex">duplex</mat-option>
+      <mat-option value="penthouse">penthouse</mat-option>
+      <mat-option value="villa">villa</mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+
+
+
+
+
+
+<mat-form-field appearance="fill">
+<mat-label>Bhk Type</mat-label>
+<mat-select formControlName="bhk_type" multiple>
+<mat-option disabled="true" >select</mat-option>
+<mat-option value="one_bhk">1 bhk</mat-option>
+<mat-option value="two_bhk">2 bhk </mat-option>
+<mat-option value='three_bhk'>3 bhk</mat-option>
+</mat-select>
+</mat-form-field>
+
+
+
+
+
+
+
+
+
+
+
+<mat-form-field appearance="fill">
+<mat-label>Aminities</mat-label>
+<mat-select formControlName="aminities" multiple>
+<mat-option disabled="true" >select</mat-option>
+<mat-option value="swimmingpool">swimmingpool</mat-option>
+<mat-option value="gatedcommunities">gated communities </mat-option>
+<mat-option value='gym'>gym</mat-option>
+<mat-option value="lift">lift</mat-option> 
+<mat-option value="parking">parking</mat-option> 
+<mat-option value="powerbackup">power_backup</mat-option> 
+</mat-select>
+</mat-form-field>
+
+
+
+
+
+
+
+
+<mat-form-field appearance="fill">
+<mat-label>Gender</mat-label>
+<mat-select formControlName="gender" multiple>
+<mat-option disabled="true" >select</mat-option>
+<mat-option value="male">male</mat-option>
+<mat-option value="female">female </mat-option>
+</mat-select>
+</mat-form-field>
+
+
+
+
+
+<mat-form-field appearance="fill">
+<mat-label>Furnishing</mat-label>
+<mat-select formControlName="furnishing" multiple>
+<mat-option disabled="true" >select</mat-option>
+<mat-option value="fully">fully</mat-option>
+<mat-option value="partially">partially </mat-option>
+<mat-option value="not">not </mat-option>
+</mat-select>  
+</mat-form-field>
+
+
+
+<mat-form-field appearance="fill">
+<mat-label>Room Type</mat-label>
+
+<mat-select formControlName="room_type" multiple>
+<mat-option disabled="true" >select</mat-option>
+<mat-option value="single">single</mat-option>
+<mat-option value="married">married </mat-option>
+<mat-option value="coliving">co_living </mat-option>
+</mat-select>
+</mat-form-field>
+
+
+
+
+
+<mat-form-field appearance="fill">
+<mat-label>Residence Type</mat-label>
+<mat-select formControlName="residence_type" multiple>
+<mat-option disabled="true" >select</mat-option>
+<mat-option value="buy">buy</mat-option>
+<mat-option value="lease">lease </mat-option>
+<mat-option value="rent">rent </mat-option>
+</mat-select>
+</mat-form-field>
+
+
+
+
+
+
+
+  <div style="width: 50vw; margin-left:25vw">
+    <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+
+  </div>
+  <div>
+    <label class="form-label select-label">radious</label>
+  <br>
+    <input type="number"  formControlName="distance" >
+  </div>
+
+</div>        
+                  <div style="margin-left: 46vw;">
+                    <button type="submit" class="btn btn-primary btn-lg" >Submit</button>
+                  </div>
+
+  </form>
+
+                    
+
+    <div>
+    <hr>
+    </div>
+
+
+
+    <ul class = 'properties'>
+       
+        <!-- <div>
+            <app-map [data]="property"></app-map>
+        </div> -->
+    
+
+        <li *ngFor="let p of property; let i = index; let odd = odd"[class.odd]="odd" >
+           
+    <br>
+        
+    
+        <!-- <div class="card">
+            
+                <div class="imgdiv">
+                <img class="card-img" [src]="p.image" alt="pi">
+                </div>
+                    <div class="detaildiv">
+                        <h5 class="card-title">{{p.name}}</h5>
+                            <p class="card-text">{{p.description}}</p>
+                        <h5 class="card-text">&#8377; {{p.price}} </h5>
+                        <a routerLink="property/{{p.id}}" class="btn btn-success" style="margin-left: 25%;">View Property</a>
+                </div>
+    
+        </div> -->
+
+        <hr>
+        <hr>
+        <div class="cont">
+            <div class="imgdiv">
+                <img  [src]="p.image" alt="pi">
+            </div>
+            <div class="blank">
+    
+            </div>
+            <div class="dtl">
+                <div>
+                    <h3 >{{p.name}}</h3>
+                    <p   >{{p.description}}</p>
+                    <h3>&#8377; {{p.price}} </h3>
+                </div>
+                <div class="btncls">
+                    <a routerLink="property/{{p.id}}" class="btn btn-success">View Property</a>
+                </div>
+            </div>
+            <!-- <div class="likdiv">
+                <img (click)="like_func(p.id)"  class="like" src='{{url}}' alt="">
+            </div> -->
+        </div>
+    
+        <hr>
+        <hr>
+        </li>
+      </ul>

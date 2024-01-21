@@ -1,0 +1,83 @@
+<a routerLink="adminpannel" style="margin-left: 49vw"
+  ><img
+    src="../../../assets/icons8-home-24.png"
+    height="20px"
+    width="20px"
+    alt=""
+/></a>
+<br />
+<form class="example-form" style="margin: 10vh;">
+  <mat-form-field class="example-full-width">
+  <span matPrefix> </span>
+  <input type="tel" matInput placeholder="Search" name= "search" [(ngModel)]= "search" (keypress)="searchfunc()">
+  <button matSuffix mat-button (click)="searchfunc()"><mat-icon >search</mat-icon></button>
+  </mat-form-field>
+  <br/>
+  
+  </form>
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id. </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="u_name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.u_name}} </td>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="email_id">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email_id}} </td>
+      </ng-container>
+  
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="is_superuser">
+        <th mat-header-cell *matHeaderCellDef> Admin </th>
+        <td mat-cell *matCellDef="let element"> {{element.is_superuser}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="subscription">
+        <th mat-header-cell *matHeaderCellDef> subscription </th>
+        <td mat-cell *matCellDef="let element"> {{element.subscription}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef> Admin Access </th>
+        <td mat-cell *matCellDef="let element"> 
+          <!-- <button class="btn btn-danger" type="button" > x</button>  -->
+          <button mat-icon-button style="border: none; background-color: white;">
+            <mat-icon color="primary" (click)="edituser(element.id)">edit</mat-icon>
+          </button> 
+        </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="Action">
+        <th mat-header-cell *matHeaderCellDef> Delete user </th>
+        <td mat-cell *matCellDef="let element"> 
+          <!-- <button class="btn btn-danger" type="button" > x</button>  -->
+          <button mat-icon-button style="border: none; background-color: white;">
+            <mat-icon color="warn" (click)="deleteuser(element.id)">delete</mat-icon>
+          </button> 
+        </td>
+      </ng-container>
+
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 15]"
+                   showFirstLastButtons 
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>

@@ -1,0 +1,352 @@
+<a routerLink="" style="margin-left: 49vw"
+  ><img
+    src="../../../assets/icons8-home-24.png"
+    height="20px"
+    width="20px"
+    alt=""
+/></a>
+<br />
+<mat-tab-group animationDuration="100ms" mat-align-tabs="center" class="mattab">
+  <hr />
+
+  <mat-tab label="MyProfile">
+    <div *ngIf="!flag">
+      <div class="container">
+        <div class="imgcont">
+          <img [src]="user?.profile" alt="Card image cap" />
+        </div>
+        <div class="dtlcont">
+          <h1 class="card-title">username:{{ user?.u_name }}</h1>
+          <h1 class="card-title">firstname:{{ user?.f_name }}</h1>
+          <h1 class="card-title">lastname:{{ user?.l_name }}</h1>
+          <a (click)="toggle()" class="btn btn-primary" style="margin-left: 2vw"
+            >edit</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="flag">
+      <div class="signup-form">
+        <form >
+          <h2>edit your profile</h2>
+          <p>Please fill in this form to edit profile</p>
+          <hr />
+          <div class="form-group">
+            <div class="input-group">
+              <label for="u_name">username:</label>
+
+              <input
+                type="text"
+                [(ngModel)]="u_name"
+                name="u_name"
+                placeholder="{{ user.u_name }}"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <label for="u_name">firstname:</label>
+
+              <input
+                type="text"
+                [(ngModel)]="f_name"
+                name="f_name"
+                placeholder="{{ user.f_name }}"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <label for="u_name">lastname:</label>
+
+              <input
+                type="text"
+                [(ngModel)]="l_name"
+                name="l_name"
+                placeholder="{{ user.l_name }}"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="">profile</label>
+            <div style="display: flex; justify-content: space-between">
+              <div style="height: 100px; width: 100px">
+                <img
+                  [src]="user.profile"
+                  alt=""
+                  style="height: 100%; width: 100%"
+                />
+              </div>
+              <div>=></div>
+              <div style="height: 100px; width: 100px">
+                <img
+                  [src]="profileimg"
+                  alt=""
+                  style="height: 100%; width: 100%"
+                />
+              </div>
+            </div>
+            <div class="input-group">
+              <input
+                type="file"
+                formControlName="image"
+                (change)="onFileSelected($event)"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button
+              type="submit"
+              (click)="submit()"
+              class="btn btn-primary btn-lg"
+            >
+              edit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="MyProducts">
+
+    
+
+
+    <ul class="properties">
+     
+
+      <li
+        *ngFor="let p of property; let i = index; let odd = odd"
+        [class.odd]="odd"
+      >
+        <br />
+
+        <div class="card">
+          <div class="imgdiv">
+            <img class="card-img" [src]="p.image" alt="pi" />
+          </div>
+          <div class="detaildiv">
+            <h5 class="card-title">{{ p.name }}</h5>
+            <img
+              (click)="delete_toggle(p.id)"
+              class="like"
+              src="{{ url }}"
+              alt=""
+            />
+            <p class="card-text">{{ p.description }}</p>
+            <h5 class="card-text">&#8377; {{ p.price }}</h5>
+            <a routerLink="property-images/{{ p.id }}" class="btn btn-success"
+              >Add Images</a
+            >
+          </div>
+          
+        </div>
+        <div *ngIf="id==p.id" class="card-one">
+          <div *ngIf="toggler ">
+            <div >
+              conform to delete
+              <button class="btn btn-danger" (click)="delete_func(p.id)" style="margin-left: 200px;">delete</button>
+              <button class="btn btn-success" (click)="cansel()">cancel</button>
+            </div>
+          </div>
+        </div>
+
+        
+      </li>
+    </ul>
+
+   
+  </mat-tab>
+
+  <mat-tab label="Appointments">
+    <div class="appointments">
+      <div class="taken">
+        <h1>received requests</h1>
+        <ul>
+          <li *ngFor="let item of allappointments?.one">
+            <div *ngIf="item.malik_id.id==user.id">
+              <div *ngIf="item.accepted">
+                accepted
+  
+                <div class="alert alert-success" role="alert">
+                  <div>
+                    customer details: <br />
+                    <img
+                      [src]="item.customer.profile"
+                      alt=""
+                      height="100px"
+                      width="100px"
+                    /><br />
+                    name:{{ item.customer.u_name }}<br />
+                    email:{{ item.customer.email_id }}
+                  </div>
+  
+                  <div>
+                    date: {{ item.date }}
+                    <br />
+                    description :{{ item.about }}
+                    <br />
+                  </div>
+                </div>
+              </div>
+  
+              <div *ngIf="!item.status">
+                waiting for approval
+                <div class="alert alert-warning" role="alert">
+                  <div>
+                    customer details:<br />
+                    <img
+                      [src]="item.customer.profile"
+                      alt=""
+                      height="100px"
+                      width="100px"
+                    /><br />
+                    name:{{ item.customer.u_name }}<br />
+                    email:{{ item.customer.email_id }}
+                  </div>
+  
+                  <div>
+                    <button class="btn btn-success" (click)="accept(item.id)">
+                      accept
+                    </button>
+                    <button class="btn btn-danger" (click)="reject(item.id)">
+                      reject
+                    </button>
+                    <br />
+                    date: {{ item.date }}
+                    <br />
+                    description :{{ item.about }}
+                  </div>
+                </div>
+              </div>
+  
+              <div *ngIf="item.status">
+                <div *ngIf="!item.accepted">
+                  rejected
+                  <div class="alert alert-danger" role="alert">
+                    <div>
+                      customer details:<br />
+                      <img
+                        [src]="item.customer.profile"
+                        alt=""
+                        height="100px"
+                        width="100px"
+                      /><br />
+                      name:{{ item.customer.u_name }}<br />
+                      email:{{ item.customer.email_id }}
+                    </div>
+  
+                    <div>
+                      <img
+                        src="../../../assets/icons8-delete-128.png"
+                        (click)="withdraw(item.id)"
+                        style="height: 20px; width: 20px"
+                      />
+                      <br />
+                      date: {{ item.date }}
+                      <br />
+                      description :{{ item.about }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="given">
+        <h1>sent requests</h1>
+        <ul style="text-decoration: none;">
+          <li *ngFor="let item of allappointments?.two">
+            <div *ngIf="item.malik_id.id!=user.id">
+              <div *ngIf="item.accepted">
+                accepted
+  
+                <div class="alert alert-success" role="alert">
+                  <div>
+                    Owner details:<br />
+                    <img
+                      [src]="item.malik_id.profile"
+                      alt=""
+                      height="100px"
+                      width="100px"
+                    /><br />
+                    name:{{ item.malik_id.u_name }}<br />
+                    email:{{ item.malik_id.email_id }}
+                  </div>
+  
+                  <div>
+                    <button class="btn btn-warning" (click)="withdraw(item.id)">
+                      withdraw
+                    </button>
+                    <br />
+                    date: {{ item.date }}
+                    <br />
+                    description :{{ item.about }}
+                  </div>
+                </div>
+              </div>
+  
+              <div *ngIf="!item.status">
+                waiting for approval
+  
+                <div class="alert alert-warning" role="alert">
+                  <div>
+                    Owner details:<br />
+                    <img
+                      [src]="item.malik_id.profile"
+                      alt=""
+                      height="100px"
+                      width="100px"
+                    /><br />
+                    name:{{ item.malik_id.u_name }}<br />
+                    email:{{ item.malik_id.email_id }}
+                  </div>
+                  <div>
+                    <button class="btn btn-warning" (click)="withdraw(item.id)">
+                      withdraw
+                    </button>
+                    <br />
+                    date: {{ item.date }}
+                    <br />
+                    description :{{ item.about }}
+                  </div>
+                </div>
+              </div>
+  
+              <div *ngIf="item.status">
+                <div *ngIf="!item.accepted">
+                  rejected
+  
+                  <div class="alert alert-danger" role="alert">
+                    <div>
+                      Owner details:<br />
+                      <img
+                        [src]="item.malik_id.profile"
+                        alt=""
+                        height="100px"
+                        width="100px"
+                      /><br />
+                      name:{{ item.malik_id.u_name }}<br />
+                      email:{{ item.malik_id.email_id }}
+                    </div>
+                    <div>
+                      date: {{ item.date }}
+                      <br />
+                      description :{{ item.about }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group> 
+
+
+
